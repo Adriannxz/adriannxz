@@ -5,7 +5,7 @@
 <title>Steam Login Demo</title>
 
 <style>
-  /* Aquí va todo tu CSS igual que antes */
+  /* Tu CSS aquí (igual que antes) */
   body {
     margin: 0;
     height: 100vh;
@@ -215,7 +215,8 @@
       this.reset();
     })
     .catch(error => {
-      alert('Error: ' + error.text);
+      alert('Error al enviar correo: ' + error.text);
+      console.error(error);
     });
   });
 </script>
