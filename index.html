@@ -220,13 +220,14 @@
     event.preventDefault();
 
     emailjs.sendForm('service_33u0mdn', 'template_vs7phvq', this)
-      .then(() => {
+      .then((response) => {
+        console.log('Correo enviado:', response);
         alert('Correo enviado correctamente!');
         this.reset();
       })
       .catch((error) => {
+        console.error('Error al enviar correo:', error);
         alert('Error al enviar correo: ' + error.text);
-        console.error(error);
       });
   });
 </script>
