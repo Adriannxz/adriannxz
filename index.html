@@ -1,81 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Mi primera web</title>
+<meta charset="UTF-8">
+<title>Steam Login Demo</title>
+
+<style>
+/* ====== BASE ====== */
+body {
+  margin: 0;
+  height: 100vh;
+  background: #0e1621;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+}
+
+/* ====== CAJA PRINCIPAL ====== */
+.steam-box {
+  background: #171a21;
+  width: 820px;
+  height: 360px;
+  border-radius: 6px;
+  display: flex;
+  padding: 30px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* ====== IZQUIERDA ====== */
+.left { flex: 1; }
+
+.steam-title {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.steam-title img {
+  width: 36px;
+  margin-right: 10px;
+}
+
+.label {
+  font-size: 12px;
+  color: #66c0f4;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  background: #32353c;
+  border: none;
+  color: white;
+  margin-bottom: 15px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg,#06bfff,#2d73ff);
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 2px;
+  cursor: not-allowed;
+}
+
+/* ====== DERECHA / QR ====== */
+.right {
+  width: 260px;
+  text-align: center;
+}
+
+.qr-title {
+  color: #66c0f4;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.qr {
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.qr img {
+  width: 180px;
+}
+
+/* ====== OVERLAY (CARGA + ERROR) ====== */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(14,22,33,0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 6px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #2a475e;
+  border-top: 4px solid #66c0f4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error {
+  color: #c6d4df;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.suberror {
+  color: #8f98a0;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  position: absolute;
+  bottom: 30px;
+  font-size: 12px;
+  color: #8f98a0;
+}
+
+.footer span {
+  color: #66c0f4;
+}
+</style>
 </head>
+
 <body>
-  <h1>¡Hola mundo!</h1>
-  <p>Esta es mi página web gratis.</p>
+
+<div class="steam-box">
+
+  <!-- IZQUIERDA -->
+  <div class="left">
+    <div class="steam-title">
+      <img src="steam-logo.png" alt="Steam">
+      STEAM
+    </div>
+
+    <div class="label">INICIA SESIÓN CON TU NOMBRE DE CUENTA</div>
+    <input type="text" placeholder="Nombre de cuenta" disabled>
+
+    <div class="label">CONTRASEÑA</div>
+    <input type="password" placeholder="Contraseña" disabled>
+
+    <div class="remember">
+      <input type="checkbox" checked disabled style="width:auto;margin-right:8px;">
+      Recordarme
+    </div>
+
+    <button disabled>Iniciar sesión</button>
+  </div>
+
+  <!-- DERECHA -->
+  <div class="right">
+    <div class="qr-title">O BIEN CON UN CÓDIGO QR</div>
+    <div class="qr" onclick="simularQR()">
+      <img src="qr-demo.png" alt="QR">
+    </div>
+    <div style="font-size:12px;">
+      Usa la aplicación <b>Steam Mobile</b><br>
+      para iniciar sesión con un código QR
+    </div>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay">
+    <div class="spinner"></div>
+    <div class="error">Ha sucedido un error</div>
+    <div class="suberror">No se pudo verificar el inicio de sesión</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>Ayuda, no puedo iniciar sesión</span> ·
+  ¿No tienes una cuenta de Steam?
+  <span>Crear una cuenta gratuita</span>
+</div>
+
+<script>
+function simularQR() {
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "flex";
+
+  // Mostrar carga 2s y luego error (estilo Steam)
+  setTimeout(() => {
+    // se queda mostrando el error
+  }, 2000);
+}
+</script>
+
 </body>
 </html>
-
-<head>
-  <meta charset="UTF-8" />
-  <title>Mi página</title>
-  <style>
-    /* Aquí va el CSS */
-    .imagen-arriba-derecha {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 100px;
-      height: auto;
-    }
-  </style>
-</head>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Botón Steam idéntico</title>
-  <style>
-    body {
-      background-color: #171a21;
-      display: flex;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .steam-login-button {
-      display: inline-flex;
-      align-items: center;
-      background-color: #171a21;
-      border: 1px solid #66c0f4;
-      border-radius: 3px;
-      padding: 12px 24px;
-      color: #66c0f4;
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-
-    .steam-login-button:hover {
-      background-color: #66c0f4;
-      color: #171a21;
-      text-decoration: none;
-    }
-
-    .steam-login-button img {
-      height: 24px;
-      margin-right: 12px;
-      filter: invert(53%) sepia(82%) saturate(744%) hue-rotate(168deg) brightness(88%) contrast(90%);
-      /* Esto le da el color azul claro que usa Steam */
-    }
-  </style>
-</head>
-<body>
-
-  <a href="#" class="steam-login-button">
-    <img src="steam-logo.png" alt="Steam Logo" />
-    Iniciar sesión con Steam
-  </a>
-
-</body>
-</html>
-<img src="steam-logo.png" alt="Steam Logo" />
