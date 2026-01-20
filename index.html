@@ -34,22 +34,18 @@
     text-transform: uppercase;
   }
 
-  .image-cropper {
+  .image-container {
     width: 800px;
-    height: 260px; /* Altura fija para mostrar solo la parte deseada */
-    overflow: hidden;
     margin: 40px auto 0 auto;
     border-radius: 8px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-    position: relative;
   }
 
-  .image-cropper img {
-    position: absolute;
-    top: -90px; /* Mueve la imagen hacia arriba para ocultar "hellcase" */
-    left: 0;
-    width: 800px; /* Ancho fijo igual que el contenedor */
+  .image-container img {
+    width: 100%;
     height: auto;
+    display: block;
+    border-radius: 8px;
   }
 </style>
 </head>
@@ -59,8 +55,8 @@
     <h1>VOTA A UNO DE NUESTRO EQUIPOS POR SKINS GRATIS</h1>
   </div>
 
-  <div class="image-cropper">
-    <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Imagen recortada">
+  <div class="image-container">
+    <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Imagen original">
   </div>
 
 </body>
