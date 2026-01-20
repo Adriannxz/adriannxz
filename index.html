@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Votación de Equipos</title>
-
 <style>
-/* ====== BASE ====== */
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #1b2838 0%, #0e1621 60%);
-  display: flex;
-  justify-content: center;      /* centra horizontal */
-  align-items: flex-start;      /* 🔴 ARRIBA, no en el medio */
-  font-family: Arial, Helvetica, sans-serif;
-  color: #c6d4df;
-}
+  /* Base */
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1b2838 0%, #0e1621 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #c6d4df;
+    padding: 0 20px 60px 20px; /* padding abajo para espacio imagen */
+  }
 
-/* ====== CONTENEDOR ====== */
-.container {
-  background: #171a21;
-  width: 800px;
-  padding: 15px 20px 25px 65px;
-  margin-top: 120px;            /* 🔴 separación del techo */
-  border-radius: 8px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-  text-align: center;
-}
+  .container {
+    background: #171a21;
+    width: 800px;
+    margin: 120px auto 0 auto;
+    padding: 15px 20px 25px 65px;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    text-align: center;
+  }
 
-/* ====== TITULO ====== */
-h1 {
-  font-size: 36px;
-  font-weight: 700;
-  margin: 0;
-  margin-top: 5px;              /* pequeño aire arriba */
-  margin-bottom: 10px;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+
+  /* Contenedor imagen recortada */
+  .image-cropper {
+    width: 800px;          /* mismo ancho que el container */
+    height: 320px;         /* altura que quieras mostrar */
+    overflow: hidden;
+    margin: 40px auto 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  }
+
+  .image-cropper img {
+    width: 100%;
+    /* Lo subimos para ocultar la parte de arriba y abajo no visible */
+    transform: translateY(-60px);
+    /* También puedes ajustar la altura si quieres */
+  }
 </style>
 </head>
-
 <body>
 
   <div class="container">
     <h1>VOTA A UNO DE NUESTRO EQUIPOS POR SKINS GRATIS</h1>
+  </div>
+
+  <div class="image-cropper">
+    <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Imagen recortada">
   </div>
 
 </body>
