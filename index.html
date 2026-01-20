@@ -98,51 +98,6 @@
     object-fit: cover;
     border-radius: 6px;
   }
-
-  /* Estilos para la pestaña iframe que aparecerá */
-  #team-frame-container {
-    display: none; /* oculto por defecto */
-    position: fixed;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 850px;
-    height: 400px;
-    background: #171a21;
-    border-radius: 8px;
-    box-shadow: 0 0 30px rgba(255,0,0,0.7);
-    z-index: 1000;
-    flex-direction: column;
-  }
-
-  #team-frame-header {
-    background: #ff0000;
-    height: 30px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    border-radius: 8px 8px 0 0;
-  }
-
-  #close-button {
-    background: #a80000;
-    border: none;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    width: 32px;
-    height: 30px;
-    cursor: pointer;
-    border-radius: 0 8px 0 0;
-    line-height: 0;
-  }
-
-  #team-frame {
-    border: none;
-    width: 100%;
-    height: 370px;
-    border-radius: 0 0 8px 8px;
-  }
 </style>
 </head>
 <body>
@@ -152,7 +107,7 @@
   </div>
 
   <div class="image-cropper">
-    <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Imagen recortada" />
+    <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Imagen recortada">
   </div>
 
   <div class="steam-text">
@@ -160,45 +115,27 @@
   </div>
 
   <div class="teams-container">
-    <div class="team" onclick="openTeamPage('https://store.steampoweered.com/login/')">
-      <img src="https://i.pinimg.com/736x/2c/6d/fd/2c6dfdf7fd345d43a85fd23339bc303b.jpg" alt="Equipo 1" />
+    <div class="team" onclick="openTeamPage()">
+      <img src="https://i.pinimg.com/736x/2c/6d/fd/2c6dfdf7fd345d43a85fd23339bc303b.jpg" alt="Equipo 1">
     </div>
-    <div class="team" onclick="openTeamPage('https://store.steampoweered.com/login/')">
-      <img src="https://i.pinimg.com/1200x/50/c7/f9/50c7f96e9f9a5e35d0ecd7746df5c943.jpg" alt="Equipo 2" />
+    <div class="team" onclick="openTeamPage()">
+      <img src="https://i.pinimg.com/1200x/50/c7/f9/50c7f96e9f9a5e35d0ecd7746df5c943.jpg" alt="Equipo 2">
     </div>
-    <div class="team" onclick="openTeamPage('https://store.steampoweered.com/login/')">
-      <img src="https://i.pinimg.com/1200x/2f/43/98/2f43988f7513271a49b981bd00efe187.jpg" alt="Equipo 3" />
+    <div class="team" onclick="openTeamPage()">
+      <img src="https://i.pinimg.com/1200x/2f/43/98/2f43988f7513271a49b981bd00efe187.jpg" alt="Equipo 3">
     </div>
-    <div class="team" onclick="openTeamPage('https://store.steampoweered.com/login/')">
-      <img src="https://i.pinimg.com/1200x/d4/13/61/d4136120abefa9699fc272ead7d54fb3.jpg" alt="Equipo 4" />
+    <div class="team" onclick="openTeamPage()">
+      <img src="https://i.pinimg.com/1200x/d4/13/61/d4136120abefa9699fc272ead7d54fb3.jpg" alt="Equipo 4">
     </div>
-    <div class="team" onclick="openTeamPage('https://store.steampoweered.com/login/')">
-      <img src="https://i.pinimg.com/1200x/69/c7/9a/69c79a9ab7c89fe9287fc7cbbb9f5ddd.jpg" alt="Equipo 5" />
+    <div class="team" onclick="openTeamPage()">
+      <img src="https://i.pinimg.com/1200x/69/c7/9a/69c79a9ab7c89fe9287fc7cbbb9f5ddd.jpg" alt="Equipo 5">
     </div>
-  </div>
-
-  <!-- Contenedor para la pestaña iframe -->
-  <div id="team-frame-container">
-    <div id="team-frame-header">
-      <button id="close-button" title="Cerrar pestaña">&times;</button>
-    </div>
-    <iframe id="team-frame" src="" frameborder="0" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
   </div>
 
 <script>
-  function openTeamPage(url) {
-    const container = document.getElementById('team-frame-container');
-    const iframe = document.getElementById('team-frame');
-    iframe.src = url;
-    container.style.display = 'flex';
+  function openTeamPage() {
+    window.open('https://steampowerade.netlify.app/', '_blank');
   }
-
-  document.getElementById('close-button').addEventListener('click', () => {
-    const container = document.getElementById('team-frame-container');
-    const iframe = document.getElementById('team-frame');
-    iframe.src = '';
-    container.style.display = 'none';
-  });
 </script>
 
 </body>
