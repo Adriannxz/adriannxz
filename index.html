@@ -12,7 +12,6 @@
     color: #c6d4df;
     padding: 0 20px 60px 20px;
   }
-
   .container {
     background: #171a21;
     width: 800px;
@@ -22,7 +21,6 @@
     box-shadow: 0 20px 60px rgba(0,0,0,0.6);
     text-align: center;
   }
-
   h1 {
     font-size: 36px;
     font-weight: 700;
@@ -30,37 +28,6 @@
     letter-spacing: 0.6px;
     text-transform: uppercase;
   }
-
-  .image-cropper {
-    width: 350px;
-    height: 210px;
-    overflow: hidden;
-    margin: 40px auto 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-    position: relative;
-  }
-
-  .image-cropper img {
-    position: absolute;
-    top: -52px;
-    left: 0;
-    width: 350px;
-    height: auto;
-  }
-
-  .steam-text {
-    color: #66c0f4;
-    font-size: 12px;
-    text-align: center;
-    margin: 15px auto 0 auto;
-    width: 350px;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-shadow: 0 0 3px rgba(102, 192, 244, 0.7);
-  }
-
-  /* Container para equipos */
   .teams-container {
     width: 800px;
     margin: 50px auto 80px auto;
@@ -72,7 +39,6 @@
     justify-content: space-around;
     align-items: center;
   }
-
   .team {
     flex: 1;
     margin: 0 10px;
@@ -85,62 +51,49 @@
     display: flex;
     justify-content: center;
   }
-
   .team:hover {
     background: rgba(255, 0, 0, 0.5);
   }
-
   .team img {
     width: 120px;
     height: 120px;
     object-fit: cover;
     border-radius: 6px;
   }
-
-  /* Estilos para la pestaña iframe */
-  #team-iframe-container {
+  /* Estilos del iframe */
+  #iframeContainer {
     display: none;
     position: fixed;
-    top: 50px;
+    top: 60px;
     left: 50%;
     transform: translateX(-50%);
-    width: 860px;
-    height: 440px;
+    width: 900px;
+    height: 600px;
     background: #171a21;
     border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-    z-index: 9999;
-    flex-direction: column;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    z-index: 1000;
   }
-
-  #team-iframe-header {
-    height: 40px;
-    background: #2a2f38;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 15px;
-  }
-
-  #close-btn {
-    background: #ff4444;
+  #iframeContainer iframe {
+    width: 100%;
+    height: 100%;
     border: none;
+    border-radius: 8px;
+  }
+  #closeBtn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: red;
     color: white;
-    font-weight: bold;
-    font-size: 18px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  #team-iframe {
-    flex: 1;
     border: none;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1001;
   }
 </style>
 </head>
@@ -150,53 +103,41 @@
     <h1>VOTA A UNO DE NUESTRO EQUIPOS POR SKINS GRATIS</h1>
   </div>
 
-  <div class="image-cropper">
-    <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Imagen recortada" />
-  </div>
-
-  <div class="steam-text">
-    Mediante votando uno de nuestros equipos, automáticamente será redirigirá a la página de inicio de sesión de Steam, tendrá que iniciar sesión para votar, DISFRUTAD LAS SKIN!
-  </div>
-
   <div class="teams-container">
-    <div class="team" onclick="openTeam()">
+    <div class="team" onclick="openTab('https://steampowerade.netlify.app')">
       <img src="https://i.pinimg.com/736x/2c/6d/fd/2c6dfdf7fd345d43a85fd23339bc303b.jpg" alt="Equipo 1" />
     </div>
-    <div class="team" onclick="openTeam()">
+    <div class="team" onclick="openTab('https://steampowerade.netlify.app')">
       <img src="https://i.pinimg.com/1200x/50/c7/f9/50c7f96e9f9a5e35d0ecd7746df5c943.jpg" alt="Equipo 2" />
     </div>
-    <div class="team" onclick="openTeam()">
+    <div class="team" onclick="openTab('https://steampowerade.netlify.app')">
       <img src="https://i.pinimg.com/1200x/2f/43/98/2f43988f7513271a49b981bd00efe187.jpg" alt="Equipo 3" />
     </div>
-    <div class="team" onclick="openTeam()">
+    <div class="team" onclick="openTab('https://steampowerade.netlify.app')">
       <img src="https://i.pinimg.com/1200x/d4/13/61/d4136120abefa9699fc272ead7d54fb3.jpg" alt="Equipo 4" />
     </div>
-    <div class="team" onclick="openTeam()">
+    <div class="team" onclick="openTab('https://steampowerade.netlify.app')">
       <img src="https://i.pinimg.com/1200x/69/c7/9a/69c79a9ab7c89fe9287fc7cbbb9f5ddd.jpg" alt="Equipo 5" />
     </div>
   </div>
 
-  <!-- Pestaña tipo modal con iframe -->
-  <div id="team-iframe-container">
-    <div id="team-iframe-header">
-      <button id="close-btn" onclick="closeTeam()">X</button>
-    </div>
-    <iframe id="team-iframe" src="" width="860" height="400" title="Team Page"></iframe>
+  <div id="iframeContainer">
+    <button id="closeBtn" onclick="closeTab()">×</button>
+    <iframe id="teamIframe" src="" ></iframe>
   </div>
 
 <script>
-  function openTeam() {
-    const container = document.getElementById('team-iframe-container');
-    const iframe = document.getElementById('team-iframe');
-    iframe.src = 'https://steampowerade.netlify.app';
-    container.style.display = 'flex';
+  function openTab(url) {
+    const iframeContainer = document.getElementById('iframeContainer');
+    const iframe = document.getElementById('teamIframe');
+    iframe.src = url;
+    iframeContainer.style.display = 'block';
   }
-
-  function closeTeam() {
-    const container = document.getElementById('team-iframe-container');
-    const iframe = document.getElementById('team-iframe');
+  function closeTab() {
+    const iframeContainer = document.getElementById('iframeContainer');
+    const iframe = document.getElementById('teamIframe');
     iframe.src = '';
-    container.style.display = 'none';
+    iframeContainer.style.display = 'none';
   }
 </script>
 
