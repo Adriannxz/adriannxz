@@ -35,8 +35,8 @@
   }
 
   .image-cropper {
-    width: 350px; /* más pequeño */
-    height: 210px; /* ajustado para mantener proporción */
+    width: 350px; /* tamaño ajustado */
+    height: 210px;
     overflow: hidden;
     margin: 40px auto 0 auto;
     border-radius: 8px;
@@ -46,10 +46,21 @@
 
   .image-cropper img {
     position: absolute;
-    top: -52px; /* mantiene el mismo recorte */
+    top: -52px;
     left: 0;
-    width: 350px; /* igual que el contenedor */
+    width: 350px;
     height: auto;
+  }
+
+  .steam-text {
+    color: #66c0f4;
+    font-size: 12px;
+    text-align: center;
+    margin: 15px auto 0 auto;
+    width: 350px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 0 3px rgba(102, 192, 244, 0.7);
   }
 </style>
 </head>
@@ -61,6 +72,10 @@
 
   <div class="image-cropper">
     <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Imagen recortada">
+  </div>
+
+  <div class="steam-text">
+    Mediante votando uno de nuestros equipos, automáticamente será redirigirá a la página de inicio de sesión de Steam, tendrá que iniciar sesión para votar, DISFRUTAD LAS SKIN!
   </div>
 
 </body>
