@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <title>Votación de Equipos</title>
 <style>
-  /* Base */
   body {
     margin: 0;
     min-height: 100vh;
@@ -35,19 +34,22 @@
     text-transform: uppercase;
   }
 
-  /* Contenedor imagen recortada */
   .image-cropper {
     width: 800px;
-    height: 300px; /* altura ajustada */
+    height: 260px; /* Altura fija para mostrar solo la parte deseada */
     overflow: hidden;
     margin: 40px auto 0 auto;
     border-radius: 8px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    position: relative;
   }
 
   .image-cropper img {
-    width: 100%;
-    transform: translateY(-65px); /* menos desplazamiento */
+    position: absolute;
+    top: -90px; /* Mueve la imagen hacia arriba para ocultar "hellcase" */
+    left: 0;
+    width: 800px; /* Ancho fijo igual que el contenedor */
+    height: auto;
   }
 </style>
 </head>
