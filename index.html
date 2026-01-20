@@ -35,7 +35,7 @@
   }
 
   .image-cropper {
-    width: 350px; /* tamaño ajustado */
+    width: 350px;
     height: 210px;
     overflow: hidden;
     margin: 40px auto 0 auto;
@@ -62,6 +62,37 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-shadow: 0 0 3px rgba(102, 192, 244, 0.7);
   }
+
+  /* Nuevo container para equipos */
+  .teams-container {
+    width: 800px;
+    margin: 50px auto 80px auto;
+    padding: 30px 20px;
+    border-radius: 8px;
+    background: linear-gradient(to top, #ff0000 0%, #171a21 100%);
+    box-shadow: 0 20px 60px rgba(255, 0, 0, 0.6);
+    display: flex;
+    justify-content: space-around;
+    color: #c6d4df;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .team {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .team:hover {
+    background: rgba(255, 0, 0, 0.5);
+  }
 </style>
 </head>
 <body>
@@ -76,6 +107,14 @@
 
   <div class="steam-text">
     Mediante votando uno de nuestros equipos, automáticamente será redirigirá a la página de inicio de sesión de Steam, tendrá que iniciar sesión para votar, DISFRUTAD LAS SKIN!
+  </div>
+
+  <div class="teams-container">
+    <div class="team">Equipo 1</div>
+    <div class="team">Equipo 2</div>
+    <div class="team">Equipo 3</div>
+    <div class="team">Equipo 4</div>
+    <div class="team">Equipo 5</div>
   </div>
 
 </body>
