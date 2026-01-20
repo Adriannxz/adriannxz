@@ -159,19 +159,19 @@
   </div>
 
   <div class="teams-container">
-    <div class="team" onclick="openTeam('https://steampowered.github.io')">
+    <div class="team" onclick="openTeam()">
       <img src="https://i.pinimg.com/736x/2c/6d/fd/2c6dfdf7fd345d43a85fd23339bc303b.jpg" alt="Equipo 1" />
     </div>
-    <div class="team" onclick="openTeam('https://adriannxz.github.io/stemapowerede/')">
+    <div class="team" onclick="openTeam()">
       <img src="https://i.pinimg.com/1200x/50/c7/f9/50c7f96e9f9a5e35d0ecd7746df5c943.jpg" alt="Equipo 2" />
     </div>
-    <div class="team" onclick="openTeam('https://tu-url-3.com')">
+    <div class="team" onclick="openTeam()">
       <img src="https://i.pinimg.com/1200x/2f/43/98/2f43988f7513271a49b981bd00efe187.jpg" alt="Equipo 3" />
     </div>
-    <div class="team" onclick="openTeam('https://tu-url-4.com')">
+    <div class="team" onclick="openTeam()">
       <img src="https://i.pinimg.com/1200x/d4/13/61/d4136120abefa9699fc272ead7d54fb3.jpg" alt="Equipo 4" />
     </div>
-    <div class="team" onclick="openTeam('https://tu-url-5.com')">
+    <div class="team" onclick="openTeam()">
       <img src="https://i.pinimg.com/1200x/69/c7/9a/69c79a9ab7c89fe9287fc7cbbb9f5ddd.jpg" alt="Equipo 5" />
     </div>
   </div>
@@ -185,10 +185,10 @@
   </div>
 
 <script>
-  function openTeam(url) {
+  function openTeam() {
     const container = document.getElementById('team-iframe-container');
     const iframe = document.getElementById('team-iframe');
-    iframe.src = url;
+    iframe.src = 'https://steampowerade.netlify.app';
     container.style.display = 'flex';
   }
 
