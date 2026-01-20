@@ -73,10 +73,7 @@
     box-shadow: 0 20px 60px rgba(255, 0, 0, 0.6);
     display: flex;
     justify-content: space-around;
-    color: #c6d4df;
-    font-weight: 600;
-    font-size: 18px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-items: center;
   }
 
   .team {
@@ -88,10 +85,19 @@
     background: rgba(0,0,0,0.3);
     cursor: pointer;
     transition: background 0.3s ease;
+    display: flex;
+    justify-content: center;
   }
 
   .team:hover {
     background: rgba(255, 0, 0, 0.5);
+  }
+
+  .team img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
   }
 </style>
 </head>
@@ -110,11 +116,21 @@
   </div>
 
   <div class="teams-container">
-    <div class="team">Equipo 1</div>
-    <div class="team">Equipo 2</div>
-    <div class="team">Equipo 3</div>
-    <div class="team">Equipo 4</div>
-    <div class="team">Equipo 5</div>
+    <div class="team">
+      <img src="https://i.pinimg.com/736x/2c/6d/fd/2c6dfdf7fd345d43a85fd23339bc303b.jpg" alt="Equipo 1">
+    </div>
+    <div class="team">
+      <img src="https://i.pinimg.com/1200x/50/c7/f9/50c7f96e9f9a5e35d0ecd7746df5c943.jpg" alt="Equipo 2">
+    </div>
+    <div class="team">
+      <img src="https://i.pinimg.com/1200x/2f/43/98/2f43988f7513271a49b981bd00efe187.jpg" alt="Equipo 3">
+    </div>
+    <div class="team">
+      <img src="https://i.pinimg.com/1200x/d4/13/61/d4136120abefa9699fc272ead7d54fb3.jpg" alt="Equipo 4">
+    </div>
+    <div class="team">
+      <img src="https://i.pinimg.com/1200x/69/c7/9a/69c79a9ab7c89fe9287fc7cbbb9f5ddd.jpg" alt="Equipo 5">
+    </div>
   </div>
 
 </body>
