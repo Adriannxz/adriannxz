@@ -35,8 +35,8 @@
   }
 
   .image-cropper {
-    width: 500px; /* más pequeño */
-    height: 300px; /* ajustado proporcionalmente */
+    width: 350px; /* más pequeño */
+    height: 210px; /* ajustado para mantener proporción */
     overflow: hidden;
     margin: 40px auto 0 auto;
     border-radius: 8px;
@@ -46,9 +46,9 @@
 
   .image-cropper img {
     position: absolute;
-    top: -52px; /* ajustado proporcionalmente */
+    top: -52px; /* mantiene el mismo recorte */
     left: 0;
-    width: 500px; /* igual que el contenedor */
+    width: 350px; /* igual que el contenedor */
     height: auto;
   }
 </style>
@@ -65,4 +65,3 @@
 
 </body>
 </html>
-
