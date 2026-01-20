@@ -34,18 +34,22 @@
     text-transform: uppercase;
   }
 
-  .image-container {
+  .image-cropper {
     width: 800px;
+    height: 280px; /* Ajusta esta altura para mostrar la zona que quieres */
+    overflow: hidden;
     margin: 40px auto 0 auto;
     border-radius: 8px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    position: relative;
   }
 
-  .image-container img {
-    width: 100%;
+  .image-cropper img {
+    position: absolute;
+    top: -105px; /* Mueve la imagen hacia arriba para ocultar "retweet" */
+    left: 0;
+    width: 800px;
     height: auto;
-    display: block;
-    border-radius: 8px;
   }
 </style>
 </head>
@@ -55,8 +59,8 @@
     <h1>VOTA A UNO DE NUESTRO EQUIPOS POR SKINS GRATIS</h1>
   </div>
 
-  <div class="image-container">
-    <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Imagen original">
+  <div class="image-cropper">
+    <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Imagen recortada">
   </div>
 
 </body>
