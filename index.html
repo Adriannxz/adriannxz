@@ -14,7 +14,7 @@
     justify-content: flex-start;
     font-family: Arial, Helvetica, sans-serif;
     color: #c6d4df;
-    padding: 0 20px 60px 20px; /* padding abajo para espacio imagen */
+    padding: 0 20px 60px 20px;
   }
 
   .container {
@@ -37,8 +37,8 @@
 
   /* Contenedor imagen recortada */
   .image-cropper {
-    width: 800px;          /* mismo ancho que el container */
-    height: 320px;         /* altura que quieras mostrar */
+    width: 800px;
+    height: 280px; /* Ajustado para ocultar parte inferior */
     overflow: hidden;
     margin: 40px auto 0 auto;
     border-radius: 8px;
@@ -47,9 +47,7 @@
 
   .image-cropper img {
     width: 100%;
-    /* Lo subimos para ocultar la parte de arriba y abajo no visible */
-    transform: translateY(-60px);
-    /* También puedes ajustar la altura si quieres */
+    transform: translateY(-80px); /* Mueve la imagen hacia arriba para ocultar "hellcase" */
   }
 </style>
 </head>
